@@ -1,0 +1,23 @@
+#fireworkCanvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+}
+canvas.fireworks {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 9999;
+}
+* {
+  -webkit-user-select: none; /* Đảm bảo hoạt động trên Safari */
+  -moz-user-select: none; /* Đảm bảo hoạt động trên Firefox */
+  -ms-user-select: none; /* Đảm bảo hoạt động trên IE/Edge */
+}
