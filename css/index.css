@@ -364,3 +364,258 @@ footer {
 .next {
   right: 15px;
 }
+.message-success {
+  color: green;
+  font-weight: bold;
+  margin: 15px 0;
+  padding: 10px;
+  border: 1px solid green;
+  background-color: #e6ffe6;
+  border-radius: 5px;
+  max-width: 400px;
+}
+.message-error {
+  color: red;
+  font-weight: bold;
+  margin: 15px 0;
+  padding: 10px;
+  border: 1px solid red;
+  background-color: #ffe6e6;
+  border-radius: 5px;
+  max-width: 400px;
+}
+.personal-info {
+  border: 2px solid #f86d6d;
+  padding: 15px;
+  margin: 10px 0 20px;
+  max-width: 300px;
+  border-radius: 8px;
+  background-color: #fff5f5;
+  box-shadow: 0 0 10px rgba(248, 109, 109, 0.3);
+}
+
+.personal-info {
+  max-width: 100%;
+  padding: 10px;
+  font-size: 14px;
+}
+#showLogin:checked ~ #loginPopup {
+  display: flex;
+}
+
+#showSignup:checked ~ #signupPopup {
+  display: flex;
+}
+
+/* Định dạng cho Popup */
+.popup-content {
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 25px;
+  width: 350px;
+  text-align: center;
+  border: 4px solid #1a73e8; /* Màu xanh độc đáo, tăng tính cool */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  animation: fadeIn 0.5s ease-out;
+  font-family: 'Roboto', sans-serif; /* Chọn font hiện đại */
+}
+
+/* Hiệu ứng xuất hiện của Popup */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Định dạng cho input */
+.popup-content input {
+  width: 90%;
+  padding: 12px;
+  margin: 12px 0;
+  border: 2px solid #ccc;
+  border-radius: 15px;
+  font-size: 16px;
+  outline: none;
+  transition: all 0.3s ease-in-out;
+}
+
+.popup-content input:focus {
+  border: 2px solid #1a73e8; /* Màu xanh nổi bật khi focus */
+  box-shadow: 0 0 10px rgba(26, 115, 232, 0.3); /* Nhấn mạnh hơn khi focus */
+}
+
+/* Định dạng cho nút button */
+.popup-content button {
+  padding: 12px 25px;
+  margin-top: 15px;
+  border: 2px solid #1a73e8;
+  border-radius: 30px;
+  background: linear-gradient(45deg, #1a73e8, #ff4081); /* Gradient đẹp mắt */
+  color: white;
+  font-weight: 600;
+  font-size: 18px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.popup-content button:hover {
+  background: white;
+  color: #1a73e8;
+  transform: scale(1.05); /* Tăng nhẹ kích thước khi hover */
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.popup-content button:active {
+  transform: scale(0.98); /* Hiệu ứng nén khi click */
+}
+
+.password-wrapper {
+  position: relative;
+}
+
+.password-wrapper input[type="password"] {
+  width: 100%;
+  padding-right: 30px;
+}
+
+.password-wrapper .eye {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+/* CSS hack: khi checkbox được check, hiển thị password */
+.password-wrapper input[type="checkbox"]:checked + input[type="password"] {
+  -webkit-text-security: none; /* Safari/Chrome */
+}
+
+/* Nút đóng */
+.close-btn {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 8px 15px;
+  border: 2px solid #f44336;
+  border-radius: 20px;
+  background: #f44336;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.close-btn:hover {
+  background: white;
+  color: #f44336;
+}
+
+/* Chuyển login ↔ signup */
+.switch-link {
+  color: blue;
+  cursor: pointer;
+  text-decoration: none;
+  display: block;
+  margin-top: 10px;
+}
+
+.switch-link:hover {
+  color: #c1001e; /* đậm hơn khi hover */
+  transform: translateY(-2px); /* nhích nhẹ lên cho sinh động */
+}
+
+.switch-link:active {
+  transform: scale(0.98);
+}
+
+.logout-btn {
+  display: inline-block;
+  padding: 6px 12px;
+  border: 2px solid pink;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s, color 0.3s;
+}
+
+.logout-btn:hover {
+  background-color: #333;
+  color: red;
+}
+/* Popup ẩn mặc định */
+.popup {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+.password-wrapper {
+  position: relative;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.password-wrapper input[type="password"],
+.password-wrapper input[type="text"] {
+  width: 100%;
+  padding-right: 35px;
+  /* chừa chỗ cho icon */
+  box-sizing: border-box;
+}
+
+.toggle-password {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #555;
+  font-size: 1.1em;
+  user-select: none;
+}
+.btn-info {
+  margin-left: 15px;
+  padding: 5px 10px;
+  background-color: #f86d6d;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+}
+.welcome-message {
+    font-size: 20px;
+    font-weight: bold;
+    display: inline-block;
+    animation: colorChange 5s infinite; /* Animation for color change */
+}
+
+/* Keyframes to create the color-changing effect */
+@keyframes colorChange {
+    0% {
+        color: #FF6347; /* Tomato */
+    }
+    25% {
+        color: #4682B4; /* SteelBlue */
+    }
+    50% {
+        color: #32CD32; /* LimeGreen */
+    }
+    75% {
+        color: #FFD700; /* Gold */
+    }
+    100% {
+        color: pink; /* Tomato */
+    }
+}
