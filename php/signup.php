@@ -23,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     }
 
     // Kiểm tra username đã tồn tại chưa
-    $stmt = $pdo->prepare("SELECT id_tk FROM dangky WHERE username = ?");
+    $stmt = $pdo->prepare("SELECT id_tk FROM taotaikhoan WHERE username = ?");
     $stmt->execute([$username]);
 
     if ($stmt->rowCount() > 0) {
@@ -56,8 +56,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $hashedPassword = $password;
 
     // Thêm tài khoản vào taotaikhoan kèm id_kh làm khóa ngoại
-    $stmt = $pdo->prepare("INSERT INTO dangky (username, password, confirm_password, id_kh) VALUES (?, ?, ?)");
-    if ($stmt->execute([$username, $hashedPassword, $id_kh])) {
+    $stmt = $pdo->prepare("INSERT INTO taotaikhoan (username, password, confirm_password, id_kh) VALUES (?, ?, ?, ?)");
+    if ($stmt->execute([$username, $hashedPassword, $hashedPassword, $id_kh])) {
         // Đăng ký thành công, tự động đăng nhập
         $_SESSION["msg"] = "✅ Đăng ký thành công!";
         $_SESSION["username"] = $username;

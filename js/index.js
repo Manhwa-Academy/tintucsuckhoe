@@ -27,13 +27,47 @@ document.querySelectorAll(".toggle-password").forEach((toggle) => {
     }
   });
 });
-const btnToggle = document.getElementById("togglePersonalInfo");
-const personalInfo = document.getElementById("personalInfo");
+document.addEventListener("DOMContentLoaded", () => {
+  const userToggle = document.getElementById("userToggle");
+  const dropdown = document.getElementById("dropdownMenu");
 
-btnToggle.addEventListener("click", () => {
-  if (personalInfo.style.display === "none") {
-    personalInfo.style.display = "block";
-  } else {
-    personalInfo.style.display = "none";
+  if (userToggle && dropdown) {
+    userToggle.addEventListener("click", (e) => {
+      e.stopPropagation();
+      dropdown.classList.toggle("show");
+      userToggle.setAttribute(
+        "aria-expanded",
+        dropdown.classList.contains("show")
+      );
+      dropdown.setAttribute("aria-hidden", !dropdown.classList.contains("show"));
+    });
+
+    document.addEventListener("click", (e) => {
+      if (!dropdown.contains(e.target) && !userToggle.contains(e.target)) {
+        dropdown.classList.remove("show");
+        userToggle.setAttribute("aria-expanded", "false");
+        dropdown.setAttribute("aria-hidden", "true");
+      }
+    });
   }
 });
+// ==================== SEARCH BAR ====================
+const openSearch = document.getElementById("openSearch");
+const searchBar = document.getElementById("searchBar");
+
+if (openSearch && searchBar) {
+  openSearch.addEventListener("click", (e) => {
+    e.stopPropagation();
+    searchBar.classList.toggle("show");
+    const input = document.getElementById("searchInput");
+    if (input && searchBar.classList.contains("show")) {
+      input.focus();
+    }
+  });
+
+  document.addEventListener("click", (e) => {
+    if (!searchBar.contains(e.target) && e.target !== openSearch) {
+      searchBar.classList.remove("show");
+    }
+  });
+}
